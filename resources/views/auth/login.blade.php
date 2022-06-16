@@ -12,15 +12,17 @@
 <br>
 <style>
     body {
-        background-image: url("https://smoda.elpais.com/wp-content/uploads/images/201528/cover_stripper_5819.jpg");
+        background-image: url("http://www.diariovasco.com/noticias/201502/27/media/tolosa--575x352.jpg");
+
+
     }
 
     .card {
-        background-color: #fccb90;
+        background-color: #D0D3D4;
     opacity: .9;
     }
 
-    .img {
+    .background-image {
   filter: blur(6px);
 }
 
@@ -31,14 +33,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="border-radius: 10px;">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Iniciar Sesión') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo Electronico') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Nombre de Usario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -78,14 +80,15 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-7">
                                 <button type="submit" class="btn btn-dark">
-                                    {{ __('Login') }}
+                                    {{ __('Iniciar Sesión') }}
                                 </button>
 
+                                <br>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Olvidaste tu contraseña?') }}
+                                        {{ __('Recuperar contraseña?') }}
                                     </a>
                                 @endif
                             </div>
