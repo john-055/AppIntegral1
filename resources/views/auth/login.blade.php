@@ -1,10 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<body style="">
+<br>
+<br>
+<center>
+    <div img>
+<img src="{{asset('images/Logo.png')}}">
+</div>
+</center>
+<br>
+<style>
+    body {
+        background-image: url("https://smoda.elpais.com/wp-content/uploads/images/201528/cover_stripper_5819.jpg");
+    }
+
+    .card {
+        background-color: #fccb90;
+    opacity: .9;
+    }
+
+    .img {
+  filter: blur(6px);
+}
+
+</style>
+
+<br>
+<div class="container"  >
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="border-radius: 10px;">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -12,7 +38,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo Electronico') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -26,7 +52,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -45,7 +71,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Recordar contraseña') }}
                                     </label>
                                 </div>
                             </div>
@@ -53,13 +79,13 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
                             </div>
@@ -70,4 +96,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection
