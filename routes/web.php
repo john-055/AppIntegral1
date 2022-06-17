@@ -23,15 +23,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
-
-
-
-
-
-
-
-Route::get('/detalleShow', function () {
-    return view('components.stripper.detalleShow');
-});
