@@ -46,9 +46,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/inicioStripper', function () {
-    return view('components.stripper.inicioStripper');
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Auth::routes();
 
