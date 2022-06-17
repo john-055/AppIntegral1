@@ -46,6 +46,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/inicioUser', function () {
+    return view('components.usuario.inicioUser');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
