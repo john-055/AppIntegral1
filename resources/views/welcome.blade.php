@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -70,6 +71,51 @@
                 </div>
                 <div class="carousel-item">
                     <img class="" width="1300px" height="500px" src="{!! asset('imagenes/carr1.jpg') !!}" alt="Third slide">
+@extends('layouts.app')
+
+@section('content')
+<body style="">
+<br>
+<br>
+<center>
+    <div img>
+<img src="{{asset('images/Logo.png')}}">
+</div>
+</center>
+<br>
+<style>
+    body {
+        background-image: url("http://www.diariovasco.com/noticias/201502/27/media/tolosa--575x352.jpg");
+
+
+    }
+
+    .card {
+        background-color: #D0D3D4;
+    opacity: .9;
+    }
+
+    .background-image {
+  filter: blur(6px);
+}
+
+</style>
+
+<br>
+<div class="container"  >
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card" style="border-radius: 10px;">
+                <div class="card-header">{{ __('Iniciar Sesión') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+
+
+                                <br>
+                            </div>
+                        </div>
+                
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -134,3 +180,7 @@
 </body>
 
 </html>
+    </div>
+</div>
+</body>
+@endsection
