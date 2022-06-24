@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="/editarPerfil" style="button"> Editar</a>
                 </div>
             </div>
         </div>
