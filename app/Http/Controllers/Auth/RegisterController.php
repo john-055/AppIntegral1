@@ -5,23 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\UsuarioRol;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
     /**
@@ -47,11 +38,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+   protected function validator(array $data)
     {
-        return Validator::make($data, [
+      return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'correo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -62,12 +53,49 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    public function create(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $nombre = $request['name'];
+
+
+        $usuario = new User();
+        $usuario->nombre = $request['name'];
+        $usuario->apePat = $request['apePat'];
+        $usuario->apeMat = $request['apeMat'];
+        $usuario->username = $request['apodo'];
+        //subida de imagen 
+
+        if($request->hasFile('img')){
+            $foto = $request->file('img');
+            $destinoPath = 'images/featureds';
+            $filename = time() . '-' . $foto->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinoPath, $filename);
+            $usuario->foto = $destinoPath . $filename;
+        }
+        $rol = $request['rol'];
+        $usuario->correo = $request['email'];
+        if($rol == "2"){
+            $usuario->status = "false";
+        }else{
+            $usuario->status = "true";
+        }
+        $usuario->genero = $request['genero'];
+        $usuario->fechaNa = $request['fechaNa'];
+
+        //fin 
+        $password = $request['password'];
+        $usuario->password = Hash::make($request['password']);
+
+
+       
+         $usuario->save();
+                 //insercion del rol a la tabla has_model_rol
+        $usuarioRol = new UsuarioRol();
+        $usuarioRol->role_id = $request['rol'];
+        $usuarioRol->model_type = "App\Models\User";
+        $usuarioRol->model_id = $usuario->id;
+        $usuarioRol->save();
+        return back()->with('success', 'Registro con éxito');
+       
     }
 }

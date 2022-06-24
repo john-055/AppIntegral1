@@ -8,10 +8,16 @@
         <div class="col-md-8">
             <div class="card"  style="background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(21, 13, 13, 0.4) 0%, rgba(0,0,0,0.40) 120%) #272828;
             background-blend-mode: multiply,multiply;   opacity: 0.8;">
+                              @if(session('success'))
+                              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                  {{session('success')}}
+                              </div>
+                            @endif
                 <div class="card-header text-white"><h1 class="text-center">{{ __('Registro') }}</h1></div>
 
                 <div class="card-body"  >
-                    <form method="POST" action="{{ route('register') }}"> 
+                    <form method="POST" action="{{ url('/resgistro')}}" enctype="multipart/form-data"> 
                         @csrf
 
                         <div class="row g-3">
@@ -29,19 +35,39 @@
 
                             
                             <div class="col-md-6">
-                                <label for="name" class="col-md-4 col-form-label text-md-end text-white">{{ __('Apellidos') }}</label>
-                                <input id="apellidos" type="text" class="form-control @error('name') is-invalid @enderror" name="apellido" value="{{ old('apellidos') }}" required autocomplete="apellidos" autofocus>
+                                <label for="apePat" class="col-md-4 col-form-label text-md-end text-white">{{ __('Apellido Paterno') }}</label>
+                               <input id="apePat" type="text" class="form-control @error('apePat') is-invalid @enderror" name="apePat" value="{{ old('apellido paterno') }}" required autocomplete="apePat" autofocus>
 
-                                @error('fechaNa')
+                                @error('apePat')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                            <div class="col-md-6">
+                                <label for="apeMat" class="col-md-4 col-form-label text-md-end text-white">{{ __('Apellido Materno') }}</label>
+                               <input id="apeMat" type="text" class="form-control @error('apeMat') is-invalid @enderror" name="apeMat" value="{{ old('apellido paterno') }}" required autocomplete="apeMat" autofocus>
 
+                                @error('apeMat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-6">
+                                <label for="email" class="col-md-4 col-form-label text-md-end text-white">{{ __('Email Address') }}</label>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                       
                             <div class="col-6">
                                 <label for="fechaNa" class="text-white">{{ __('Fecha de Nacimiento') }}</label>
-                                <input id="fechaNa" type="date" class="form-control @error('fechaNa') is-invalid @enderror" name="fechaNa" value="{{ old('apellidos') }}" required autocomplete="fechaNa" autofocus>
+                                <input id="fechaNa" style="width: 150px" type="date" class="form-control @error('fechaNa') is-invalid @enderror" name="fechaNa" value="{{ old('apellidos') }}" required autocomplete="fechaNa" autofocus>
 
                                 @error('fechaNa')
                                     <span class="invalid-feedback" role="alert">
@@ -52,17 +78,7 @@
 
                            
                             
-                            <div class="col-6">
-                                    <label for="email" class="col-md-4 col-form-label text-md-end text-white">{{ __('Email Address') }}</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-    
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                            </div>
-                           
+
     
 
                             
@@ -74,7 +90,7 @@
 <br>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end text-white">{{ __('Apodo de Usuario') }}</label>
+                            <label for="apodo" class="col-md-4 col-form-label text-md-end text-white">{{ __('Apodo de Usuario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="apodo" type="text" class="form-control @error('apodo') is-invalid @enderror" name="apodo" value="{{ old('email') }}" required autocomplete="apodo">
@@ -111,21 +127,21 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="rol" class="col-md-4 col-form-label text-md-end text-white">{{ __('Rol') }}</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select name="rol" class="form-select" aria-label="Default select example">
                                     <option selected>Seleccione su rol</option>
-                                    <option value="1">Usuario</option>
+                                    <option value="3">Usuario</option>
                                     <option value="2">Stripper</option>
                                    
                                   </select>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="rol" class="col-md-4 col-form-label text-md-end text-white">{{ __('Genero') }}</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <label for="genero" class="col-md-4 col-form-label text-md-end text-white">{{ __('Genero') }}</label>
+                                <select  name="genero" class="form-select" aria-label="Default select example">
                                     <option selected>Seleccione su Genero</option>
-                                    <option value="1">Hombre</option>
-                                    <option value="2">Mujer</option>
-                                    <option value="3">Otro</option>
+                                    <option value="M">Hombre</option>
+                                    <option value="F">Mujer</option>
+                                    <option value="O">Otro</option>
                                    
                                   </select>
                             </div>
