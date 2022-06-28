@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,54 +92,6 @@
                             <h4 class="text-white text-uppercase mb-4 animated slideInDown"><i class="fa fa-phone-alt text-primary me-3"></i>Rabbitsboys</h4>
                         </div>
                     </div>
-                    <img class="" width="1300px" height="500px" src="{!! asset('imagenes/carr3.jpg') !!}" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="" width="1300px" height="500px" src="{!! asset('imagenes/carr1.jpg') !!}" alt="Third slide">
-@extends('layouts.app')
-
-@section('content')
-<body style="">
-<br>
-<br>
-<center>
-    <div img>
-<img src="{{asset('images/Logo.png')}}">
-</div>
-</center>
-<br>
-<style>
-    body {
-        background-image: url("http://www.diariovasco.com/noticias/201502/27/media/tolosa--575x352.jpg");
-
-
-    }
-
-    .card {
-        background-color: #D0D3D4;
-    opacity: .9;
-    }
-
-    .background-image {
-  filter: blur(6px);
-}
-
-</style>
-
-<br>
-<div class="container"  >
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card" style="border-radius: 10px;">
-                <div class="card-header">{{ __('Iniciar Sesión') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-
-
-                                <br>
-                            </div>
-                        </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
@@ -328,7 +279,7 @@
                         &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        <!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
                          <a class="border-bottom" href="#">Rabbitsboys</a>
                     </div>
                 </div>
@@ -355,7 +306,3 @@
 </body>
 
 </html>
-    </div>
-</div>
-</body>
-@endsection
