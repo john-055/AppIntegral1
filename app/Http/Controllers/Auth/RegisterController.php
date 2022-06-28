@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $fechaNa = $request['fechaNa'];
         $ano = Carbon::createFromDate($fechaNa)->age;
         if($ano < 22){
-            return back()->with('error', 'Tienes que tener mas de 22 años para registrarte. ');
+            return back()->with('error', 'Debes tener más de 22 años para registrarte. ');
         }
 
         $data = request()->validate([
@@ -101,7 +101,8 @@ class RegisterController extends Controller
         ];
         $messages = [
             'img.required' => 'Agrega la imagen.',
-            'img.mimes' => 'Solo se aceptan archivos .jpeg, .png o .jpg.',
+            'img.mimes' => 'Solo se aceptan archivos con extensiones .jpeg, .png o .jpg.',
+            'password.regex' => 'La contraseña debe tener mayúsculas, minúsculas y caracteres especiales.'
         ];
         $this->validate($request, $rules, $messages);
 
