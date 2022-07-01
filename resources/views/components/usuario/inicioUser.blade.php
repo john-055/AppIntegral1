@@ -87,42 +87,17 @@
         <br>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($strippers as $striper)
             <div class="col">
                 <div class="card h-100">
-                    <img src="https://i.pinimg.com/originals/97/6d/07/976d07dc1740e717c7d842836c7ca85f.jpg" class="img-fluid" alt="..." height="100%" width="100%">
+                    <img src="{{asset($striper->foto)}}" class="img-thumbnail" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Juan Carlos Salas</h5>
+                        <h5 class="card-title">{{$striper->nombre}}</h5>
                         <center> <button type="button" class="btn btn-info">Detalles</button></center>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://img.allvipp.com/www-promipool-de/image/upload/c_fill,g_faces,w_1200,h_1200,q_auto:eco,f_jpg/eminem_210608_grbnhncg3y" class="rounded" alt="..." height="100%" width="100%">
-                    <div class="card-body">
-                        <h5 class="card-title">Alejandro Cruz</h5>
-                        <center> <button type="button" class="btn btn-info">Detalles</button></center>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://los40es00.epimg.net/los40/imagenes/2019/07/22/videojuegos/1563796861_520833_1563796957_miniatura_normal.jpg" class="card-img-top" alt="..." height="100%" width="100%">
-                    <div class="card-body">
-                        <h5 class="card-title">Kevin Villafuerte</h5>
-                        <center> <button type="button" class="btn btn-info">Detalles</button></center>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://i.pinimg.com/originals/e5/aa/50/e5aa5009469b1b7ff31603c3c115573c.jpg" class="card-img-top" alt="..." height="100%" width="100%">
-                    <div class="card-body">
-                        <h5 class="card-title">Jonathan Mendez</h5>
-                        <center> <button type="button" class="btn btn-info">Detalles</button></center>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </div>

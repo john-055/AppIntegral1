@@ -119,7 +119,7 @@ class RegisterController extends Controller
 
         if($request->hasFile('img')){
             $foto = $request->file('img');
-            $destinoPath = 'images/featureds';
+            $destinoPath = 'images/featureds/';
             $filename = time() . '-' . $foto->getClientOriginalName();
             $uploadSuccess = $request->file('img')->move($destinoPath, $filename);
             $usuario->foto = $destinoPath . $filename;

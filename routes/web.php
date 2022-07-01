@@ -20,12 +20,15 @@ Route::get('/', function () {
 
 Route::get('/inicioStripper', function () {
     return view('components.stripper.inicioStripper');
-});
+})->name('/inicioStipper');
+
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/inicioUser', [App\Http\Controllers\HomeController::class, 'inicioUser'])->name('/inicioUser');
 
-
+Route::get("/inicioUser", 'HomeController@inicioUser')->name("inicioUser");
 
 
 

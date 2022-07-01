@@ -33,7 +33,16 @@ class ActiveMiddleware
              //$ids = $idStrippers;
               ////dd($users);
               //$strippers = User::where('id',$users)->get();
-                return redirect('/inicioUser');
+
+              $strippers = User::join("model_has_roles", "model_has_roles.model_id", "=", "User.id")
+                  ->select("user.id", "user.nombre", "user.apePat", "user.apeMat", "user.username", "user.email", "user.foto", "user.status", "user.genero")
+                  ->where("model_has_roles.role_id", "=", "2")
+                  ->get();
+
+                  // view('components.usuario.inicioUser');
+                  return response()->view('components.usuario.inicioUser', compact('strippers'));
+                //return redirect('/inicioUser',['strippers'=>$strippers]);
+               // return redirect()->route('/inicioUser',compact('strippers'));
             }
           } else {
             Auth::logout();
