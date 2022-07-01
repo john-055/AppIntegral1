@@ -31,6 +31,18 @@
 <br>
 <div class="container"  >
     <div class="row justify-content-center">
+        <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css" rel="stylesheet">
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+      <script type="text/javascript">
+         @if (session()->has('cuenta_baja'))
+           var mam = '{{ Session::get("cuenta_baja") }}';
+           Swal.fire({
+             title: "Información",
+             text: mam,
+             icon: "info",
+           });
+         @endif
+      </script>
         <div class="col-md-8">
             <div class="card" style="border-radius: 10px;">
                 <div class="card-header">{{ __('Iniciar Sesión') }}</div>
@@ -43,9 +55,9 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Nombre de Usario') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

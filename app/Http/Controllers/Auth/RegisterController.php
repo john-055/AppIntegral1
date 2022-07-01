@@ -80,7 +80,7 @@ class RegisterController extends Controller
             'name' => 'required|max:150',
             'apodo' => 'required|unique:user,username|max:150',
             'img' => 'required|image|mimes:jpeg,png,jpe',
-            'email' => 'required|unique:user,correo|email|max:150',
+            'email' => 'required|unique:user,email|email|max:150',
             'password' => 'confirmed'
             
   
@@ -124,7 +124,7 @@ class RegisterController extends Controller
             $uploadSuccess = $request->file('img')->move($destinoPath, $filename);
             $usuario->foto = $destinoPath . $filename;
         }
-        $usuario->correo = $request['email'];
+        $usuario->email = $request['email'];
         if($rol == "2"){
             $usuario->status = "false";
         }else if($rol == "3"){

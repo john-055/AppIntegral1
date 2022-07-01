@@ -14,6 +14,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('active');
+        $this->middleware('verified');
     }
 
     /**
@@ -23,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $retorno = \Auth::user();
+       
+        return back()->with('error', 'Registro con éxito');
+        //return view('home');
     }
 
 }
