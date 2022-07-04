@@ -31,9 +31,6 @@ class HomeController extends Controller
         //return view('home');
     }
 
-    public function inicioUser()
-    {  
-        return view('components.usuario.inicioUser');
-    }
+
 
 }

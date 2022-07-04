@@ -34,6 +34,7 @@
 
 <body class="antialiased" background="{!! asset('imagenes/fondo.jpg') !!}">
 
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">RabbitBoys</a>

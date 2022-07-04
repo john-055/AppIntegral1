@@ -5,6 +5,14 @@
 @endsection
 
 @section('content')
+  @if (!auth()->check())
+  <?php
+  return redirect('/login');
+  echo("hola");
+  ?>
+  @else
+
+  @endif
     <div class="container" style="margin-top: 15px; margin-bottom: 15px; ">
         <div class="row justify-content-center">
             <div class="col-md-8">
