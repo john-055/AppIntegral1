@@ -62,16 +62,16 @@
                                     <button  type="button" class="btn btn-danger">
                                       {{ __('Logout') }}
                                     </button>
-                      
+
                     </a>
-        
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                      @csrf
                      </form>
                   </li>
             @else
                 <a href="{{ route('login') }}" class="nav-item nav-link">Iniciar sesión</a>
-                
+
             @if (Route::has('register'))
             <a href="{{ route('register') }}" class="nav-item nav-link">Registrarse</a>
             @endif
@@ -218,7 +218,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
                         <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                            
+
                         </div>
                         <div class="ps-4">
                             <h3 class="text-uppercase mb-3">Servicio 4</h3>
@@ -231,7 +231,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item position-relative overflow-hidden bg-secondary d-flex h-100 p-5 ps-0">
                         <div class="bg-dark d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                            
+
                         </div>
                         <div class="ps-4">
                             <h3 class="text-uppercase mb-3">Servicio 4</h3>
@@ -271,12 +271,12 @@
                         <span>Rabbitsboys.com</span>
                     </div>
                 </div>
-               
+
                 <div class="col-lg-4 col-md-6">
-                    <h4 class="text-uppercase mb-4">Newsletter</h4>
+
                     <div class="position-relative mb-4">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+
+
                     </div>
                     <div class="d-flex pt-1 m-n1">
                         <a class="btn btn-lg-square btn-dark text-primary m-1" href=""><i class="fab fa-twitter"></i></a>
