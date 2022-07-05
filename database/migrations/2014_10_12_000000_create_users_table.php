@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apePat');
             $table->string('apeMat');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('foto');
-            $table->string('correo')->unique();
+            $table->string('email')->unique();
             $table->string('status');
             $table->string('genero');
             $table->timestamp('fechaNa');

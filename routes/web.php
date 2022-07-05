@@ -20,17 +20,17 @@ Route::get('/', function () {
 
 Route::get('/inicioStripper', function () {
     return view('components.stripper.inicioStripper');
-})->name('/inicioStipper')->middleware('verified');
+})->name('inicioStripper')->middleware('verified')->middleware('can:inicioStripper');
 
 Route::get('/inicioAdmin', function () {
     return view('components.administrador.incioAdmin');
-})->name('/inicioAdmin')->middleware('verified');
+})->name('inicioAdmin')->middleware('verified')->middleware('can:inicioAdmin');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Route::get('/inicioUser', function () {
     return view('components.usuario.inicioUser');
-})->middleware('verified');
+})->middleware('verified')->middleware('can:inicioUser');
 
 Route::post('/resgistro', [App\Http\Controllers\Auth\RegisterController::class,'create'])->name('registro'); 
 
