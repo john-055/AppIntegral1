@@ -24,13 +24,15 @@ class ActiveMiddleware
             $rol = UsuarioRol::where('model_id', Auth::user()->id)->first();
 
             if ($rol->role_id == 1) {
-              $strippers = User::join("model_has_roles", "model_has_roles.model_id", "=", "User.id")
+
+              $totalStripers = User::join("model_has_roles", "model_has_roles.model_id", "=", "User.id")
               ->select("user.id", "user.nombre", "user.apePat", "user.apeMat", "user.username", "user.email", "user.foto", "user.status", "user.genero")
               ->where("model_has_roles.role_id", "=", "2")
               ->where("User.status", "=", "false")
-              ->get();
+              ->count();
+
               
-              return response()->view('components.administrador.incioAdmin', compact('strippers'));
+              return response()->view('components.administrador.incioAdmin', compact('totalStripers'));
             } else if($rol->role_id == 2) {
                 return redirect('/inicioStripper');
             }else{

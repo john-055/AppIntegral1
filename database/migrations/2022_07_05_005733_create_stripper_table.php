@@ -15,14 +15,12 @@ return new class extends Migration
     {
         Schema::create('stripper', function (Blueprint $table) {
             $table->bigIncrements('idStripper');
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->float('precio');
-            $table->string('correo');
-            $table->string('telefono');
-            $table->unsignedBigInteger('idFoto');
+            $table->string('correo')->nullable();
+            $table->string('telefono')->nullable();
             $table->unsignedBigInteger('idUsuario');
             $table->foreign('idUsuario')->references('id')->on('user')->onDelete('cascade');
-            $table->foreign('idFoto')->references('idFoto')->on('foto')->onDelete('cascade');
             $table->timestamps();
         });
     }

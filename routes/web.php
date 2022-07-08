@@ -33,7 +33,14 @@ Route::get('/inicioUser', function () {
 })->middleware('verified')->middleware('can:inicioUser');
 
 Route::post('/resgistro', [App\Http\Controllers\Auth\RegisterController::class,'create'])->name('registro'); 
-
+Route::get('/pendientes', 'App\Http\Controllers\AdminController@pendiente')->name('pendiente')->middleware('verified')->middleware('can:inicioAdmin'); 
+Route::get('/inicio', 'App\Http\Controllers\AdminController@inicio')->name('inicio')->middleware('verified')->middleware('can:inicioAdmin'); 
+Route::get('/acceptados', 'App\Http\Controllers\AdminController@acceptados')->name('acceptados')->middleware('verified')->middleware('can:inicioAdmin');
+Route::get('/clientes', 'App\Http\Controllers\AdminController@clientes')->name('clientes')->middleware('verified')->middleware('can:inicioAdmin');
+Route::post('/actualizarAdmin/{id}', 'App\Http\Controllers\AdminController@update')->name('actualizarAdmin')->middleware('verified')->middleware('can:inicioAdmin');  
+Route::post('/cantidad/{id}', 'App\Http\Controllers\AdminController@registerStr')->name('cantidad')->middleware('verified')->middleware('can:inicioAdmin');
+Route::get('/eleminar/{id}', 'App\Http\Controllers\AdminController@destroy')->name('eliminar')->middleware('verified')->middleware('can:inicioAdmin');  
+ 
 Route::get('/editarPerfil', function(){
     return view('/components/stripper/editarPerfil');
 })->name('perfil')->middleware('verified');

@@ -78,8 +78,10 @@ class RegisterController extends Controller
 
         $data = request()->validate([
             'name' => 'required|max:150',
+            'apePat' => 'required|max:150',
+            'apeMat' => 'required|max:150',
             'apodo' => 'required|unique:user,username|max:150',
-            'img' => 'required|image|mimes:jpeg,png,jpe',
+            'img' => 'required|image|mimes:jpeg,png,jpg',
             'email' => 'required|unique:user,email|email|max:150',
             'password' => 'confirmed'
             

@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('foto', function (Blueprint $table) {
             $table->bigIncrements('idFoto');
             $table->string('url');
+            $table->unsignedBigInteger('idStripper');
+            $table->foreign('idStripper')->references('idStripper')->on('stripper')->onDelete('cascade');
             $table->timestamps();
         });
     }

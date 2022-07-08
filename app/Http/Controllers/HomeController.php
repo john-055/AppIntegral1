@@ -25,10 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $retorno = \Auth::user();
-       
-        return back()->with('error', 'Registro con éxito');
-        //return view('home');
+
     }
 
 
