@@ -52,30 +52,12 @@
         @if (Route::has('login'))
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-            @auth
-                <a href="{{ url('/home') }}" class="nav-item nav-link active">Inicio</a>
-                <li class="nav-item">
-                    <a class="dropdown-item"
-                     href="{{ route('logout') }}"
-                      onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">
-                                    <button  type="button" class="btn btn-danger">
-                                      {{ __('Logout') }}
-                                    </button>
 
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                     @csrf
-                     </form>
-                  </li>
-            @else
                 <a href="{{ route('login') }}" class="nav-item nav-link">Iniciar sesión</a>
 
             @if (Route::has('register'))
             <a href="{{ route('register') }}" class="nav-item nav-link">Registrarse</a>
             @endif
-            @endauth
             @endif
                 </div>
             </div>

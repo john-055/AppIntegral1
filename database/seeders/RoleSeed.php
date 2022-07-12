@@ -27,5 +27,7 @@ class RoleSeed extends Seeder
 
 
        Permission::create(['name' => 'inicioAdmin'])->assignRole($admin);
+       Permission::create(['name' => 'inicioStripper'])->assignRole($stripper);
+       Permission::create(['name' => 'inicioUser'])->assignRole($usuario);
     }
 }
