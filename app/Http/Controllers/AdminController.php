@@ -143,7 +143,10 @@ class AdminController extends Controller
     public function show($id)
     {
         //
-    }
+
+        $usuario = User::find($id);
+        return response()->json($usuario); 
+    } 
 
     /**
      * Show the form for editing the specified resource.
@@ -256,7 +259,7 @@ class AdminController extends Controller
             unlink($imagePath);
         }
         $usuario->delete();
-        return back()->with('success', 'Eliminado correctamente. ');
+        return back()->with('eliminar', 'ok');
 
     }
 }

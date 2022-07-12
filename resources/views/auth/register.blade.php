@@ -110,11 +110,18 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            
+                            
                             <label for="password" class="col-md-4 col-form-label text-md-end text-white">{{ __('Contraseña') }}</label>
-
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="password" required autocomplete="new-password">
+                                
+                                    <i id="icono" style="color: white" class="bi bi-eye" aria-hidden="true"></i>
 
+                                
+                                
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="password" required autocomplete="new-password">
+                                
+                               
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -127,6 +134,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end text-white">{{ __('Confirmar Contraseña') }}</label>
 
                             <div class="col-md-6">
+                                <i id="icono2" name="icono2" style="color: white" class="bi bi-eye" aria-hidden="true"></i>
                                 <input id="password-confirm" type="password" class="form-control" value="{{old('password_confirmation')}}" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
@@ -180,6 +188,7 @@
 
                             </div>
                         </div>
+                        
 
 
 
@@ -196,15 +205,30 @@
                                     <a class="nav-link text-center" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </button>
                             </div>
-
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function mostrar(){
+        var tipo = document.getElementById("password");
+        var icono = document.getElementById("icono");
+        console.log(tipo.type);
+        if(tipo.type == "password"){
+            tipo.type = 'text';
+            icono.classList.add('bi bi-eye-slash');
+           
+        }else{
+            tipo.type = 'password';
+            console.log('no entro');
+            icono.classList.add('bi bi-eye');
+        }
+    }
+</script>
+<script src="{{'js/registro.js'}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
