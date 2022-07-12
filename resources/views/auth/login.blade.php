@@ -18,7 +18,7 @@
     }
 
     .card {
-        background-color: #D0D3D4;
+        background-color: #272626;
     opacity: .9;
     }
 
@@ -29,7 +29,7 @@
 </style>
 
 <br>
-<div class="container"  >
+<div class="container" >
     <div class="row justify-content-center">
         <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css" rel="stylesheet">
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
@@ -45,6 +45,7 @@
       </script>
         <div class="col-md-8">
             <div class="card" style="border-radius: 10px;">
+            <div class="card-header text-white"><h2 class="text-center">{{ __('Inicio de Session') }}</h2></div>
                 <div class="card-header">{{ __('Iniciar Sesión') }}</div>
 
                 <div class="card-body">
@@ -52,7 +53,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Nombre de Usario') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end text-white">{{ __('Nombre de Usario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
@@ -66,7 +67,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end text-white">{{ __('Contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -83,7 +84,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-7">
-                                <button type="submit" class="btn btn-dark">
+                                <button type="submit" class="btn btn-light">
                                     {{ __('Iniciar Sesión') }}
                                 </button>
 
