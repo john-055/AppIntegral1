@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<h2 class="mb-4">Inicio</h2>
+<h2 class="mb-4">Perfil del Administrador</h2>
 <div>
     <div class="container">
         <div class="row justify-content-center">

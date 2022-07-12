@@ -7,66 +7,57 @@
 
 @section('content')
 <h2 class="mb-4">Stripper Aceptados</h2>
-                    <table class="table">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido Paterno</th>
-                            <th scope="col">Apellido Materno</th>
-                            <th scope="col">Genero</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Eleminar</th>
-                            <th scope="col">Detalle</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @php($i=1)
-                          @foreach ($strippers as $striper)
-                          <tr>
-                            <th scope="row">{{$i++}}</th>
-                            <td>{{$striper->nombre}}</td>
-                            <td>{{$striper->apePat}}</td>
-                            <td>{{$striper->apeMat}}</td>
-                            <td>{{$striper->genero}}</td>
-                            <td>{{$striper->email}}</td>
-                            <td><img class="img-thumbnail" src="{{asset($striper->foto)}}" alt="no hay foto..."></td>
-                            <td>
-                              <br>
-                              <form method="POST" action="{{Route('eliminarAdmin', ['id'=> $striper->id])}}" class="formulario-eliminar">
-                                @csrf
-                                <button type="submit" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                  </svg> Eliminar</button>
-                            
-                              </form>
-                            </td>
-                            <td>
-    
-                              <form action="" id="mostrar" style="padding-top: 10px">
-                                {!! csrf_field() !!}
+<div class="container px-4 py-5" id="featured-3">
+  <h2 class="pb-2 border-bottom text-center">Strippers Acceptados</h2>
 
-                                <div class="mb-3">
-                                  <label for="id" class="form-label d-none">id</label>
-                                  <input type="text" class="form-control d-none" name="id" id="id" value="{{$striper->id}}" aria-describedby="helpId" placeholder="">
-                                  <small id="helpId" class="form-text text-muted d-none">Help text</small>
-                                </div>
-                               <button type="button" class="btn btn-info" id="btnDetalle" >
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
-                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-                                  </svg>
-                                  Detalle
-                                </button> 
-                              
-                              </form>
-                            </td>
-                          </tr>
-                          @endforeach
-                        
-                        </tbody>
-                      </table>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+  
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          @foreach ($strippers as $striper)
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="card-img-top" src="{{asset($striper->foto)}}" alt="Card image cap">
+              <div class="card-body">
+                <h3 >{{$striper->nombre}}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <br>
+                    <form action="" id="mostrar" style="">
+                      {!! csrf_field() !!}
+                        <input type="text" class="form-control d-none" name="id" id="id" value="{{$striper->id}}" aria-describedby="helpId" placeholder="">     
+                     <button type="button" class="btn btn-info" id="btnDetalle" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                          <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"></path>
+                          <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+                        </svg>
+                        Ver
+                      </button> 
+                    </a>
+                    </form>
+                    &nbsp;
+                    <div style="">
+                      <form method="POST" action="{{Route('eliminarAdmin', ['id'=> $striper->id])}}" class="formulario-eliminar">
+                        @csrf
+                        <button type="submit" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                          </svg> Eliminar</button>
+                    
+                      </form>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+  </div>
 
 
                       
