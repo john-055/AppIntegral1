@@ -21,12 +21,19 @@
                         <div class="team-img position-relative overflow-hidden">
                             <img class="img-fluid" src="{{asset($striper->foto)}}" alt="">
                             <div class="team-social">
-                                <a class="btn btn-square" href="#">Detalles... </a>
+                                <form method="POST" action="{{Route('verStripper', ['id'=>$striper->id])}}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-square">Detalle</button>
+                                </form>
                             </div>
                         </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h5 class="text-uppercase">{{$striper->nombre}}</h5>
-                            <h5 class="text-uppercase">{{$striper->apePat}}</h5>
+                        <div class="bg-dark text-center p-4">
+                            <h5 class="text-uppercase text-white">{{$striper->nombre}}</h5>
+                            <h5 class="text-uppercase text-white">{{$striper->apePat}}</h5>
+                            <form method="POST" action="{{Route('verStripper', ['id'=>$striper->id])}}">
+                                @csrf
+                                <button type="submit" class="btn btn-info">Detalle</button>
+                            </form>
                         </div>
                     </div>
                 </div>

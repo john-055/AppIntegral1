@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Foto;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
-class inicioUserController extends Controller
+class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verified');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,14 +22,17 @@ class inicioUserController extends Controller
      */
     public function index()
     {
-        //
-        //$user = User::get();
-        //return $user;
-       //return view('components.usuario.inicioUser');
 
-       $users = User::all();
+       $strippers = User::join("model_has_roles", "model_has_roles.model_id", "=", "User.id")
+       ->select("user.id", "user.nombre", "user.apePat", "user.apeMat", "user.username", "user.email", "user.foto", "user.status", "user.genero")
+       ->where("model_has_roles.role_id", "=", "2")
+       ->where("User.status", "=", "true")
+       ->get();
 
-        return view('components.usuario.inicioUser', ['User' => $users]);
+       
+
+
+       return response()->view('components.usuario.inicioUser', compact('strippers'));
 
     }
 
@@ -93,4 +103,18 @@ class inicioUserController extends Controller
     {
         //
     }
+
+    public function verStripper($id){
+        $strippers = User::join("stripper as str", "str.idUsuario", "=", "User.id")
+        ->select("user.id", "user.nombre", "user.apePat", "user.apeMat", "user.fechaNa", "user.username", "user.email", "user.foto", "user.status", "user.genero", "str.idStripper", "str.descripcion", "str.precio", "str.correo", "str.telefono", "str.idUsuario")
+        ->first();
+
+        $edad = Carbon::createFromDate($strippers->fechaNa)->age;
+
+ 
+        $imagenes = Foto::where('idStripper', $strippers->idStripper)->get();
+        return View('components.usuario.detalleStripper', compact('strippers', 'imagenes', 'edad'));
+        
+    }
 }
+ 

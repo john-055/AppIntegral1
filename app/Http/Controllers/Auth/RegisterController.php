@@ -51,20 +51,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-   /*protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:3'],
-            'apePat' => ['required', 'string', 'max:255'],
-            'apeMat' => ['required', 'string', 'max:255'],
-            'apodo' => ['required', 'string', 'max:12'],
-            'apodo' => ['required'],
-            'genero' => ['required'],
-            'img' => ['required', 'string'],
-            'correo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }*/
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -75,7 +62,7 @@ class RegisterController extends Controller
     public function create(Request $request)
     {
 
-        //Métodos de las validaciones 
+        //Métodos de las validaciones  
         $rol = $request['rol'];
         if($rol == "1"){
             return back()->with('error', 'Algo Salio mal.');
@@ -104,7 +91,8 @@ class RegisterController extends Controller
             'genero' => 'required|max:1',
             'rol' => 'required|max:1',
             'fechaNa' => 'required',
-            //'password' => ['required|string|confirmed|min:8|max:50|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/'],
+            'genero' => 'required|max:1|in:M,F,O',
+            'rol' => 'required|max:1|in:2,3',
             'password' => [
                 'required', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/',
                 Password::min(8), 'max:50', 'string'],      
@@ -115,7 +103,9 @@ class RegisterController extends Controller
         $messages = [
             'img.required' => 'Agrega la imagen.',
             'img.mimes' => 'Solo se aceptan archivos con extensiones .jpeg, .png o .jpg.',
-            'password.regex' => 'La contraseña debe tener mayúsculas, minúsculas y caracteres especiales.'
+            'genero.in' => 'Algo salio mal con la selección del genero',
+            'rol.in' => 'Algo salio mal con la selección del rol',
+            'password.regex' => 'La contraseña debe tener números, mayúsculas, minúsculas y caracteres especiales.'
         ];
         $this->validate($request, $rules, $messages);
 

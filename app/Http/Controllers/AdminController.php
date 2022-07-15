@@ -187,7 +187,7 @@ class AdminController extends Controller
             'apePat' => 'required|max:150',
             'apeMat' => 'required|max:150',
           ]);
-
+ 
           $rules = [
             'genero' => 'required|max:1|in:M,F,O',
             'fechaNa' => 'required',
