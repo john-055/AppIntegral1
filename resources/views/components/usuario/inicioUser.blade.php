@@ -8,7 +8,7 @@
     <div class="container-xxl py-5">
 
         <center>
-            <h1>Inicio</h1>
+            <h1>Strippers disponibles</h1>
         </center>
 
         <!-- Team Start -->
