@@ -1,11 +1,11 @@
-@extends('layouts.appAdmin')
+@extends('layouts.appUser')
 
 @section('head')
-<title>Inicio Admin</title>
+<title>Editar Perfil</title>
 @endsection
 
 @section('content')
-<h2 class="mb-4">Perfil del Administrador</h2>
+<h2 class="mb-4">Editar Perfil</h2>
 <div>
     <div class="container">
         <div class="row justify-content-center">
@@ -40,12 +40,12 @@
                     </div>
     
                     <div class="card-body"  >
-                        <form method="POST" action="{{ Route('actualizarAdmin',['id'=>Auth::user()->id])}}" enctype="multipart/form-data"> 
+                        <form method="POST" action="{{ Route('actualizarUser',['id'=>Auth::user()->id])}}" enctype="multipart/form-data"> 
                             @csrf
     
                             <div class="row g-3">
                                 <div class="text-center">
-                                 <img src="{{asset(Auth::user()->foto)}}" name="originalFoto" class="rounded-circle mx-auto d-block" style="width: 250px; height: 200px;" alt="...">
+                                 <img src="{{asset(Auth::user()->foto)}}" name="originalFoto" class="mx-auto d-block" style="width: 250px; height: 200px;" alt="...">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="name"  class="col-form-label text-md-end text-white">{{ __('Nombres') }}</label>
@@ -99,7 +99,7 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div>
+                                </div> 
     
                             </div>
     <br>

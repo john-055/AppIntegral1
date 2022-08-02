@@ -45,10 +45,14 @@ Route::get('/inicioUser', 'App\Http\Controllers\UserController@index')->name('in
 Route::get('/agenda', 'App\Http\Controllers\EventoController@index')->name('agenda')->middleware('verified')->middleware('can:inicioUser');
 Route::post('/agregar', 'App\Http\Controllers\EventoController@store')->name('agregar')->middleware('verified')->middleware('can:inicioUser');
 Route::get('/mostrar', 'App\Http\Controllers\EventoController@show')->name('mostrar')->middleware('verified')->middleware('can:inicioUser');
+Route::post('/actualizarUser/{id}', 'App\Http\Controllers\UserController@update')->name('actualizarUser')->middleware('verified');
 Route::post('/editar/{id}', 'App\Http\Controllers\EventoController@edit')->name('editar')->middleware('verified')->middleware('can:inicioUser');
 Route::post('/eliminar/{id}', 'App\Http\Controllers\EventoController@destroy')->name('eliminar')->middleware('verified')->middleware('can:inicioUser');
 Route::post('/update/{evento}', 'App\Http\Controllers\EventoController@update')->name('actualizar')->middleware('verified')->middleware('can:inicioUser');
 Route::post('/verStripper/{id}', 'App\Http\Controllers\UserController@verStripper')->name('verStripper')->middleware('verified')->middleware('can:inicioUser');
+Route::get('/editarPerfilUser', function(){
+    return view('/components/usuario/editarPerfilUser');
+})->name('editarPerfil')->middleware('verified');
 
 Route::get('/editarPerfil', function(){
     return view('/components/stripper/editarPerfil');

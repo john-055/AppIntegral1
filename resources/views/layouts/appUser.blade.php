@@ -63,7 +63,7 @@
                     <a class="nav-link" href="#">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Perfil</a>
+                    <a class="nav-link" href="{{ route('editarPerfil') }}">Editar Perfil</a>
                 </li>
 
             </ul>
