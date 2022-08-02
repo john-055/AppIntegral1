@@ -79,32 +79,32 @@
         <div class="row g-3">
           <div class="col-md-6">
             <label for="name"  class="col-form-label text-md-end">{{ __('Nombre') }}</label>
-            <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->nombre}}" required autocomplete="" autofocus>
+            <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->nombre}}" required autocomplete="" autofocus disabled>
           </div>
           <div class="col-md-6">
             <label for="apePat" class="col-form-label text-md-end">{{ __('Apellido') }}</label>
-            <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->apePat}}" required autocomplete="" autofocus>
+            <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->apePat}}" required autocomplete="" autofocus disabled>
           </div>
 
           <div class="col-6">
               <label for="email" class=" ">{{ __('Genero') }}</label>
-              <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->genero}}" required autocomplete="" autofocus>
+              <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->genero}}" required autocomplete="" autofocus disabled>
           </div>
 
           <div class="col-6">
             <label for=" ">{{ __('Edad') }}</label>
-            <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$edad}}" required autocomplete="" autofocus>
+            <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$edad}}" required autocomplete="" autofocus disabled>
           </div>
 
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{$strippers->descripcion}}</textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{$strippers->descripcion}}</textarea>
           </div>
           &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
           <div class="row mb-3">
             <label for="apodo" class="col-md-4 col-form-label text-md-end">{{ __('Precio del Servicio') }}</label>
             <div class="col-md-6">
-              <input id=" " type="text" class="form-control @error(' ') is-invalid @enderror" name="" value="{{$strippers->precio}}" required autocomplete=" ">
+              <input id=" " type="text" class="form-control @error(' ') is-invalid @enderror" name="" value="{{$strippers->precio}}" required autocomplete=" " disabled>
             </div>
           </div>
         </div>
@@ -134,71 +134,12 @@
     <!-- Team End -->
     <br>
     <br>
-          <!-- Modal -->
-          <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" id="form2" name="form2">
-
-                          {!! csrf_field() !!}
-
-                            <div class="mb-3">
-                              <label for="id" class="form-label d-none">ID:</label>
-                              <input type="text" class="form-control d-none" name="id" id="id" aria-describedby="helpId" placeholder="">
-
-                            </div>
-                            <div class="mb-3">
-                              <label for="title" class="form-label">Titulo</label>
-                              <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="">
-
-                            </div>
-                            <div class="mb-3">
-                              <label for="descripcion" class="form-label">Decripcion</label>
-                              <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="">
-
-                            </div>
-
-                            <div class="mb-3">
-                              <label for="horaIni" class="form-label">Hora inicio</label>
-                              <input type="time" min="21:00" max=":00" class="form-control" name="horaIni" id="horaIni" aria-describedby="helpId" placeholder="">
-
-                            </div>
-                            <div class="mb-3">
-                              <label for="horaFin" class="form-label">Hora Fin</label>
-                              <input type="time" min="21:00" max="3:00" class="form-control" name="horaFin" id="horaFin" aria-describedby="helpId" placeholder="">
-
-                            </div>
-                            <div class="mb-3">
-                              <label for="start" class="form-label d-none">Start</label>
-                              <input type="date" class="form-control d-none" name="start" id="start" aria-describedby="helpId" placeholder="">
-
-                            </div>
-                            <div class="mb-3">
-                              <label for="end" class="form-label d-none">End</label>
-                              <input type="date" class="form-control d-none" name="end" id="end" aria-describedby="helpId" placeholder="">
-
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="btnGuardar">Guardar</button>
-                        <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
-                        <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>      <!-- Modal -->
+   <!-- Modal -->
       <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h5 class="modal-title">Modal title</h5>
+                      <h5 class="modal-title">Contratación</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -206,16 +147,48 @@
 
                         {!! csrf_field() !!}
 
-                          <div class="mb-3">
+                          <div class="mb-3 d-none">
                             <label for="id" class="form-label d-none">ID:</label>
                             <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
-                            <small id="helpId" class="form-text text-muted d-none">Help text</small>
+                           
                           </div>
                           <div class="mb-3">
                             <label for="title" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="">
-                            <small id="helpId" class="form-text text-muted">Help text</small>
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" aria-describedby="helpId" placeholder="">
+                            @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                           </div>
+                          <div class="mb-3">
+                            <label for="descripcion" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" name="direccion" id="direccion" aria-describedby="helpId" placeholder=""> 
+                          </div>
+                          <div class="mb-3">
+                            <label for="descripcion" class="form-label">Número de contacto</label>
+                            <input type="text" class="form-control" name="numeroCli" id="denumeroCli" aria-describedby="helpId" placeholder=""> 
+                          </div>
+                          <div class="mb-3">
+                            <label for="descripcion" class="form-label">forma de Pago</label>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" value="tarjeta" name="formaPago" id="formaPago">
+                              <label class="form-check-label" for="formaPago">
+                                Tarjeta
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" value="Efectivo" name="formaPago" id="formaPago2" checked>
+                              <label class="form-check-label" for="formaPago2">
+                                Efectivo
+                              </label>
+                            </div> 
+                          </div>
+                          <div class="mb-3">
+                           
+                            <input type="text" class="form-control" value="{{$strippers->idStripper}}" name="idStripper" id="idStripper" aria-describedby="helpId" placeholder=""> 
+                          </div>
+
                           <div class="mb-3">
                             <label for="descripcion" class="form-label">Decripcion</label>
                             <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="">
@@ -232,12 +205,12 @@
                             <input type="time" min="21:00" max="3:00" class="form-control" name="horaFin" id="horaFin" aria-describedby="helpId" placeholder="">
                             <small id="helpId" class="form-text text-muted">Help text</small>
                           </div>
-                          <div class="mb-3">
-                            <label for="start" class="form-label">Start</label>
+                          <div class="mb-3 d-none">
+                            
                             <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
                             <small id="helpId" class="form-text text-muted">Help text</small>
                           </div>
-                          <div class="mb-3">
+                          <div class="mb-3 d-none">
                             <label for="end" class="form-label">End</label>
                             <input type="date" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
                             <small id="helpId" class="form-text text-muted">Help text</small>

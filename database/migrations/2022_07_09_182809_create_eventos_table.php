@@ -21,6 +21,14 @@ return new class extends Migration
             $table->dateTime('end');
             $table->dateTime('timeStrart');
             $table->dateTime('timeEnd');
+            $table->string('direccion',255);
+            $table->string('numeroCli',100);
+            $table->string('estatus',10);
+            $table->string('formaPago');
+            $table->unsignedBigInteger('idUsuario');
+            $table->unsignedBigInteger('idStripper');
+            $table->foreign('idUsuario')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('idStripper')->references('idStripper')->on('stripper')->onDelete('cascade');
             $table->timestamps();
         });
     }

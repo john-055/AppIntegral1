@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\Stripper; 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class EventoController extends Controller
@@ -40,6 +41,8 @@ class EventoController extends Controller
         //
         request()->validate(Evento::$rules);
         //'numero_parcial'  => $request->get('numero_parcial'),
+        $fechaActual = Carbon::now();
+
         $start = $request->get('start');
         $horaIni = $request->get('horaIni');
         $date = Carbon::parse($horaIni);
@@ -47,9 +50,26 @@ class EventoController extends Controller
         $date2 = Carbon::parse($start);
         $date3 = $date2->format('Y-m-d');
 
+        if($date2 <= $fechaActual){
+            return response()->json('No');
+        }
+
+
+
+        $direccion = $request->get('direccion');
+        $numeroCli = $request->get('numeroCli');
+        $estatus = "pendiente";
+        $formaPago = $request->get('formaPago');
+        $idUsuario = \Auth::user()->id;
+        $idStripper = $request->get('idStripper');
+
         $fecha3 = strtotime($date1, strtotime($date3)) ;
         $fechaStart = date ('Y-m-d H:i:s', $fecha3);
-
+        
+        $fechac = Evento::where("timeStrart", $fechaStart)->exists();
+        if($fechac){
+            return response()->json('No');
+        }
         $end = $request->get('end');
         $horaFin = $request->get('horaFin');
         $fecha = Carbon::parse($horaFin);
@@ -66,7 +86,13 @@ class EventoController extends Controller
             'start' => $fechaStart,
             'end' => $fechaEnd,
             'timeStrart' => $fechaStart,
-            'timeEnd' => $fechaEnd
+            'timeEnd' => $fechaEnd,
+            'direccion' => $direccion,
+            'numeroCli' => $numeroCli,
+            'estatus' => $estatus,
+            'formaPago' => $formaPago,
+            'idUsuario' => $idUsuario,
+            'idStripper' => $idStripper
         ]);
         //$evento = Evento::create($request->all());
        
@@ -83,6 +109,14 @@ class EventoController extends Controller
     {
         //
         $evento = Evento::all();
+       return response()->json($evento);
+    }
+
+    public function showStri(Evento $evento)
+    {
+        //
+        $stripper = Stripper::where("idUsuario", \Auth::user()->id)->first();
+        $evento = Evento::where("idStripper", $stripper->idStripper)->get();
        return response()->json($evento);
     }
 
@@ -115,9 +149,15 @@ class EventoController extends Controller
     public function update(Request $request, Evento $evento)
     {
         //
-        request()->validate(Evento::$rules);
-        $evento->update($request->all());
-        return response()->json($evento);
+        $evento2 = Evento::find($evento->id);
+        if($evento2->idUsuario == \Auth::user()->id){
+            
+            request()->validate(Evento::$rules);
+            $evento->update($request->all());
+            return response()->json($evento);
+        }
+        return response()->json('No');
+
     }
 
     /**
@@ -129,8 +169,13 @@ class EventoController extends Controller
     public function destroy($id)
     {
         //
-        $evento = Evento::find($id)->delete();
-        return response()->json($evento);
+        $evento = Evento::find($id);
+        if($evento->idUsuario == \Auth::user()->id){
+            
+            $evento = Evento::find($id)->delete();
+            return response()->json($evento);
+        }
+        return response()->json('No');
     }
 }
  

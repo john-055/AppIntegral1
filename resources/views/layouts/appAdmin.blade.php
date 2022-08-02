@@ -39,7 +39,7 @@
     </div>
     <ul class="list-unstyled components mb-5">
       <li class="active">
-        <a href="{{ route('inicio') }}"><span class="fa fa-home mr-3"></span>Inicio</a>
+        <a href="{{ route('inicio') }}"><span class="fa fa-home mr-3"></span>Perfil</a>
       </li>
       <li>
           <a href="{{ route('pendiente') }}"><span class="fa fa-user mr-3 notif"><small class="d-flex align-items-center justify-content-center">{{$totalStripers}}</small></span>Stripper por Aceptar</a>

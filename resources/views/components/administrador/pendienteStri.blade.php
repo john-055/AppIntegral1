@@ -82,7 +82,7 @@
                                   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                   </svg> Eliminar</button>
                             
-                              </form>
+                              </form> 
                             </td>
                             <td>
                               <form action="" id="mostrar" style="padding-top: 10px">
@@ -91,7 +91,7 @@
                                 <div class="mb-3">
                                   <label for="id" class="form-label d-none">id</label>
                                   <input type="text" class="form-control d-none" name="id" id="id" value="{{$striper->id}}" aria-describedby="helpId" placeholder="">
-                                  <small id="helpId" class="form-text text-muted d-none">Help text</small>
+                                
                                 </div>
                                <button type="button" class="btn btn-info" id="btnDetalle" >
                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">

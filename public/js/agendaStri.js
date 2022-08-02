@@ -11,23 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar:{
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth, timeGridDay,'
-       // right: 'dayGridMonth, timeGridDay, listWeek,'
+  
+        right: 'listWeek,'
       },
 
-      events: "/mostrar",
+      events: "/mostrarStri",
 
-      dateClick:function(info) {
-        formulario2.reset();
-        formulario2.start.value=info.dateStr;
-        formulario2.end.value=info.dateStr;
-        document.getElementById('btnModificar').style.display = 'none';
-        document.getElementById('btnEliminar').style.display = 'none';
-        document.getElementById('btnGuardar').style.display = 'inline';
-       
-
-        $("#evento").modal("show");
-      },
+ 
       eventClick:function (info){
         var evento = info.event;
         document.getElementById('btnModificar').style.display = 'inline';
@@ -35,13 +25,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('btnGuardar').style.display = 'none';
         
 
-        axios.post("/editar/"+info.event.id).
+        axios.post("/editarStri/"+info.event.id).
         then(
           (respuesta)=>{
 
             formulario2.id.value = respuesta.data.id;
             formulario2.title.value = respuesta.data.title;
             formulario2.descripcion.value = respuesta.data.descripcion;
+            formulario2.direccion.value = respuesta.data.direccion;
+            formulario2.numeroCli.value = respuesta.data.numeroCli;
+            formulario2.formaPago.value = respuesta.data.formaPago;
             formulario2.start.value = respuesta.data.start;
             formulario2.end.value = respuesta.data.end;
             formulario2.horaIni.value = respuesta.data.timeStrart;

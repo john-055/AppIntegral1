@@ -178,7 +178,7 @@ class UserController extends Controller
         ->where("User.id", "=", $id)
         ->first();
 
- 
+   
         $edad = Carbon::createFromDate($strippers->fechaNa)->age;
 
 

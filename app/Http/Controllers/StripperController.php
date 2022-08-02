@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stripper;
 use App\Models\User;
+use App\Models\Foto;
 
 class stripperController extends Controller
 {
@@ -100,5 +101,50 @@ class stripperController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function subirFoto(Request $request)
+    {
+        $rules = [
+            'img' => 'image|mimes:jpeg,png,jpg',
+           
+            
+        ];
+        $messages = [
+            'img.mimes' => 'Solo se aceptan archivos con extensiones .jpeg, .png o .jpg.',
+
+        ];
+        $this->validate($request, $rules, $messages);
+ 
+        $fotoStri = new Foto();
+
+        $stripper = Stripper::where("idUsuario", \Auth::user()->id)->first();
+
+        if($request->hasFile('img')){
+            $foto = $request->file('img');
+            $destinoPath = 'images/featureds/';
+            $filename = time() . '-' . $foto->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinoPath, $filename);
+            $fotoStri->url = $destinoPath . $filename;
+            $fotoStri->idStripper = $stripper->idStripper;
+            $fotoStri->save();
+            return back()->with('success', 'Se guardo la imagen correctamente');
+        }
+
+        return back()->with('error', 'Algo salio mal');
+
+
+    }
+
+    public function eleminarFoto($id){
+        $foto = Foto::find($id);
+        $imagenPrin = $foto->url;
+            $imagePath = public_path($imagenPrin);
+            if(\File::exists($imagePath)){
+                unlink($imagePath);
+                $foto->delete();
+                return back()->with('success', 'Se elimino la imagen correctamente');
+            }
+            return back()->with('error', 'Algo salio mal');
     }
 }

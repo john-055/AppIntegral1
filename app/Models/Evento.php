@@ -15,6 +15,11 @@ static $rules=[
     'end'        => 'required',
     'horaIni'        => 'required',
     'horaFin'        => 'required',
+    'direccion' => 'required',
+    'numeroCli' => 'required',
+   
+    'formaPago' => 'required',
+    'idStripper' => 'required'
 ];
     
 
@@ -25,5 +30,11 @@ static $rules=[
             'end',
             'timeStrart',
             'timeEnd',
+            'direccion',
+            'numeroCli',
+            'estatus',
+            'formaPago',
+            'idUsuario',
+            'idStripper'
     ];
 }
