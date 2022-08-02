@@ -175,14 +175,18 @@ class UserController extends Controller
     public function verStripper($id){
         $strippers = User::join("stripper as str", "str.idUsuario", "=", "User.id")
         ->select("user.id", "user.nombre", "user.apePat", "user.apeMat", "user.fechaNa", "user.username", "user.email", "user.foto", "user.status", "user.genero", "str.idStripper", "str.descripcion", "str.precio", "str.correo", "str.telefono", "str.idUsuario")
+        ->where("User.id", "=", $id)
         ->first();
 
+ 
         $edad = Carbon::createFromDate($strippers->fechaNa)->age;
+
 
 
         $imagenes = Foto::where('idStripper', $strippers->idStripper)->get();
         return View('components.usuario.detalleStripper', compact('strippers', 'imagenes', 'edad'));
 
     }
+
 }
  
