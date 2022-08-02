@@ -5,7 +5,10 @@
 @endsection
 
 @section('content')
+<br>
+<center>
 <h2 class="mb-4">Editar Perfil</h2>
+</center>
 <div>
     <div class="container">
         <div class="row justify-content-center">
