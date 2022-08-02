@@ -12,13 +12,13 @@
                                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     {{session('success')}}
-                                </div>                                 
+                                </div>
                               @endif
                               @if(session('error'))
                               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 {{session('error')}}
-                            </div>  
+                            </div>
                               @endif
                             @if (count($errors) > 0)
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -34,11 +34,11 @@
                 <div class="card-header text-white"><h1 class="text-center">{{ __('Registro') }}</h1></div>
 
                 <div class="card-body"  >
-                    <form method="POST" action="{{ url('/resgistro')}}" enctype="multipart/form-data"> 
+                    <form method="POST" action="{{ url('/resgistro')}}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row g-3">
-                            
+
                             <div class="col-md-6">
                                 <label for="name"  class="col-md-4 col-form-label text-md-end text-white">{{ __('Nombres') }}</label>
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -50,7 +50,7 @@
                                 @enderror
                             </div>
 
-                            
+
                             <div class="col-md-6">
                                 <label for="apePat" class="col-md-4 col-form-label text-md-end text-white">{{ __('Apellido Paterno') }}</label>
                                <input id="apePat" type="text" class="form-control @error('apePat') is-invalid @enderror" name="apePat" value="{{ old('apePat') }}" required autocomplete="apePat" autofocus>
@@ -81,7 +81,7 @@
                                     </span>
                                 @enderror
                         </div>
-                       
+
                             <div class="col-6">
                                 <label for="fechaNa" class="text-white">{{ __('Fecha de Nacimiento') }}</label>
                                 <input id="fechaNa" style="width: 150px" type="date" class="form-control @error('fechaNa') is-invalid @enderror" name="fechaNa" value="{{ old('fechaNa') }}" required autocomplete="fechaNa" autofocus>
@@ -110,18 +110,18 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            
-                            
+
+
                             <label for="password" class="col-md-4 col-form-label text-md-end text-white">{{ __('Contraseña') }}</label>
                             <div class="col-md-6">
-                                
+
                                     <i id="icono" style="color: white" class="bi bi-eye" aria-hidden="true"></i>
 
-                                
-                                
+
+
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="password" required autocomplete="new-password">
-                                
-                               
+
+
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -146,9 +146,9 @@
                                     <option value=" " selected>Seleccione su rol</option>
                                     <option value="3">Usuario</option>
                                     <option value="2">Stripper</option>
-                                   
+
                                   </select>
-                                  
+
                                 @error('rol')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -163,9 +163,9 @@
                                     <option value="M">Hombre</option>
                                     <option value="F">Mujer</option>
                                     <option value="O">Otro</option>
-                                   
+
                                   </select>
-                                  
+
                                 @error('genero')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -176,7 +176,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            
+
                             @error('img')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -188,18 +188,17 @@
 
                             </div>
                         </div>
-                        
 
 
 
 
-                        <div class="row mb-3" style="margin-left: 205px">
+
+                        <div class="row mb-3" style="margin-left: 180px">
                             <div class="col-md-6 ">
-                                <button type="submit" class="btn btn-primary text-white" style="width: 270px">
+                                <button type="submit" class="btn btn-primary text-white" style="width: 250px">
                                     {{ __('Register') }}
                                 </button>
                             </div>
-
                             <div class="col-md-6">
                                 <button type="button" class="btn btn-warning text-center" style="height: 40px" >
                                     <a class="nav-link text-center" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -220,7 +219,7 @@
         if(tipo.type == "password"){
             tipo.type = 'text';
             icono.classList.add('bi bi-eye-slash');
-           
+
         }else{
             tipo.type = 'password';
             console.log('no entro');

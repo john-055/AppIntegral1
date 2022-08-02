@@ -15,7 +15,7 @@
     <div class="container-xxl py-5" id="cont1">
         <div class="container">
             <div class="row g-4">
-           
+
                   <!-- Section: Images -->
 <section class="">
     <div class="row">
@@ -68,14 +68,14 @@
     </div>
 @endforeach
 <br>
-<center> 
+<center>
     <h4 class="text-black">Información del contrato</h4>
 </center>
 <div class="d-flex justify-content-center">
     <div class="card border-dark" style="width: 80%; height: auto;">
       <div class="card-body">
-  
-            
+
+
         <div class="row g-3">
           <div class="col-md-6">
             <label for="name"  class="col-form-label text-md-end">{{ __('Nombre') }}</label>
@@ -85,12 +85,12 @@
             <label for="apePat" class="col-form-label text-md-end">{{ __('Apellido') }}</label>
             <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->apePat}}" required autocomplete="" autofocus>
           </div>
-   
+
           <div class="col-6">
               <label for="email" class=" ">{{ __('Genero') }}</label>
               <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$strippers->genero}}" required autocomplete="" autofocus>
           </div>
- 
+
           <div class="col-6">
             <label for=" ">{{ __('Edad') }}</label>
             <input id=" " type="input" class="form-control @error(' ') is-invalid @enderror" name=" " value="{{$edad}}" required autocomplete="" autofocus>
@@ -110,13 +110,13 @@
         </div>
         <div class="container">
           <div id="agenda">
-          
+
           </div>
       </div>
-      
-      
 
-      
+
+
+
 
 
       </div>
@@ -126,7 +126,7 @@
   <!-- Section: Modals -->
 </section>
 <!-- Modal gallery -->
-              
+
             </div>
         </div>
     </div>
@@ -144,44 +144,44 @@
                     </div>
                     <div class="modal-body">
                         <form action="" id="form2" name="form2">
-        
+
                           {!! csrf_field() !!}
-        
+
                             <div class="mb-3">
                               <label for="id" class="form-label d-none">ID:</label>
-                              <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted d-none">Help text</small>
+                              <input type="text" class="form-control d-none" name="id" id="id" aria-describedby="helpId" placeholder="">
+
                             </div>
                             <div class="mb-3">
                               <label for="title" class="form-label">Titulo</label>
                               <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted">Help text</small>
+
                             </div>
                             <div class="mb-3">
                               <label for="descripcion" class="form-label">Decripcion</label>
                               <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted">Help text</small>
+
                             </div>
-        
+
                             <div class="mb-3">
                               <label for="horaIni" class="form-label">Hora inicio</label>
                               <input type="time" min="21:00" max=":00" class="form-control" name="horaIni" id="horaIni" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted">Help text</small>
+
                             </div>
                             <div class="mb-3">
                               <label for="horaFin" class="form-label">Hora Fin</label>
                               <input type="time" min="21:00" max="3:00" class="form-control" name="horaFin" id="horaFin" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted">Help text</small>
+
                             </div>
                             <div class="mb-3">
-                              <label for="start" class="form-label">Start</label>
-                              <input type="date" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted">Help text</small>
+                              <label for="start" class="form-label d-none">Start</label>
+                              <input type="date" class="form-control d-none" name="start" id="start" aria-describedby="helpId" placeholder="">
+
                             </div>
                             <div class="mb-3">
-                              <label for="end" class="form-label">End</label>
-                              <input type="date" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
-                              <small id="helpId" class="form-text text-muted">Help text</small>
+                              <label for="end" class="form-label d-none">End</label>
+                              <input type="date" class="form-control d-none" name="end" id="end" aria-describedby="helpId" placeholder="">
+
                             </div>
                         </form>
                     </div>
@@ -203,9 +203,9 @@
                   </div>
                   <div class="modal-body">
                       <form action="" id="form2" name="form2">
-      
+
                         {!! csrf_field() !!}
-      
+
                           <div class="mb-3">
                             <label for="id" class="form-label d-none">ID:</label>
                             <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
@@ -221,7 +221,7 @@
                             <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="">
                             <small id="helpId" class="form-text text-muted">Help text</small>
                           </div>
-      
+
                           <div class="mb-3">
                             <label for="horaIni" class="form-label">Hora inicio</label>
                             <input type="time" min="21:00" max=":00" class="form-control" name="horaIni" id="horaIni" aria-describedby="helpId" placeholder="">
